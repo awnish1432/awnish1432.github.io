@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Awnish | QA Engineer, Manual and Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ef;--panel:#fff;--ink:#14231e;--mute:#53645e;--line:#cfd9d3;--pass:#16895c;--passbg:#dcf3e8;--bug:#d9363e;--amber:#b7791f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a16;--panel:#16251f;--ink:#e8f1ec;--mute:#9bb0a7;--line:#2a3d35;--pass:#3ecf8e;--passbg:#183a2c;--bug:#ff6b72;--amber:#e8b04a}}
+:root[data-theme="dark"]{--bg:#0f1a16;--panel:#16251f;--ink:#e8f1ec;--mute:#9bb0a7;--line:#2a3d35;--pass:#3ecf8e;--passbg:#183a2c;--bug:#ff6b72;--amber:#e8b04a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pass);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:20px;justify-content:space-between;align-items:center;padding:18px 0;flex-wrap:wrap}
+nav b{font:800 20px "Bricolage Grotesque",sans-serif}
+nav div{display:flex;gap:18px;font-size:15px}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;padding:36px 0 70px}
+.hero h1{font-size:clamp(46px,8vw,92px);font-weight:800;letter-spacing:-.03em}
+.hero p.lead{font-size:20px;color:var(--mute);max-width:30em;margin:22px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:500;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.run{background:var(--panel);border:2px solid var(--ink);border-radius:14px;padding:6px 18px 14px;box-shadow:8px 8px 0 var(--ink)}
+.run header{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-weight:500;font-size:15px}
+.run header span{color:var(--pass)}
+.run li{list-style:none;display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.run ul{margin:0;padding:0}
+.tick{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:12px;color:transparent}
+.run li.done .tick{background:var(--pass);border-color:var(--pass);color:#fff}
+.run li.bug .tick{background:var(--bug);border-color:var(--bug);color:#fff}
+.run li small{margin-left:auto;color:var(--mute)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em;margin-bottom:10px}
+.sub{color:var(--mute);max-width:36em;margin:0 0 34px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);border-radius:14px;background:var(--panel);overflow:hidden}
+.stats div{padding:24px 20px;border-right:1px solid var(--line)}
+.stats div:last-child{border:0}
+.stats b{display:block;font:800 clamp(34px,5vw,52px)/1 "Bricolage Grotesque",sans-serif}
+.stats span{color:var(--mute);font-size:15px}
+.suites{display:grid;gap:18px}
+.suite{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.suite h3{font-size:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:15px}
+.proj{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--line)}
+.proj .tick{background:var(--pass);border-color:var(--pass);color:#fff;width:28px;height:28px;font-size:14px}
+.proj h3{font-size:26px;margin-bottom:6px}
+.proj p{margin:0 0 10px;color:var(--mute);max-width:44em}
+.proj .chips span{font-size:13px;padding:3px 10px}
+.proj a{font-weight:500}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.two h3{font-size:24px;margin-bottom:12px}
+.two li{margin-bottom:10px;color:var(--mute)}
+.two ul{padding-left:20px;margin:0}
+.contact{background:var(--ink);color:var(--bg);border-radius:18px;padding:44px 34px}
+.contact h2{font-size:clamp(34px,6vw,64px)}
+.contact p{max-width:34em;margin:14px 0 24px;opacity:.85}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.main{background:var(--bg);color:var(--ink)}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px}
+@media (max-width:760px){.hero,.two{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.suite{grid-template-columns:1fr;gap:10px}.run{box-shadow:5px 5px 0 var(--ink)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Awnish</b><div><a href="#impact">Impact</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav>
+
+<div class="hero">
+<div>
+<h1>I break software so your users never do.</h1>
+<p class="lead">QA Engineer with 3.7 years across manual testing, API testing and automation. Based in Gurugram, open to QA, SDET and manual testing roles in NCR as an immediate joiner.</p>
+<div class="btns"><a class="btn main" href="#contact">Hire me</a><a class="btn" href="#projects">See my work</a></div>
+</div>
+<div class="run" aria-label="Sample test run">
+<header><b>Test run: checkout flow</b><span id="count">0 / 6 passed</span></header>
+<ul id="list">
+<li><i class="tick">✓</i>Login with valid credentials<small>UI</small></li>
+<li><i class="tick">✓</i>Add item to cart<small>UI</small></li>
+<li><i class="tick">✓</i>POST /orders returns 201<small>API</small></li>
+<li class="bug"><i class="tick">!</i>Payment retry double-charges<small>bug found</small></li>
+<li><i class="tick">✓</i>Order saved in database<small>SQL</small></li>
+<li><i class="tick">✓</i>Confirmation notification sent<small>E2E</small></li>
+</ul>
+</div>
+</div>
+</div>
+
+<section id="impact"><div class="wrap">
+<h2>Numbers from real testing work</h2>
+<p class="sub">Not just running test cases. Owning quality, from writing them to closing every defect.</p>
+<div class="stats">
+<div><b>500+</b><span>test cases designed and executed</span></div>
+<div><b>300+</b><span>defects reported</span></div>
+<div><b>93%</b><span>defect closure rate</span></div>
+<div><b>3.7 yrs</b><span>hands-on QA experience</span></div>
+</div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2>What I work with</h2>
+<p class="sub">Manual testing is my base. Automation and API skills sit on top of it.</p>
+<div class="suites">
+<div class="suite"><h3>Automation</h3><div class="chips"><span>Selenium (Java)</span><span>TestNG</span><span>Playwright (TypeScript)</span><span>Page Object Model</span><span>Maven</span></div></div>
+<div class="suite"><h3>API and database</h3><div class="chips"><span>Postman</span><span>REST Assured</span><span>JWT and OAuth 2.0 testing</span><span>SQL joins and window functions</span></div></div>
+<div class="suite"><h3>Manual testing</h3><div class="chips"><span>STLC and SDLC</span><span>Test case design</span><span>Bug lifecycle</span><span>Gray box testing</span><span>Android app testing</span><span>Chrome DevTools debugging</span></div></div>
+<div class="suite"><h3>Tools and delivery</h3><div class="chips"><span>JIRA</span><span>GitHub Actions</span><span>CI/CD pipelines</span><span>Devtron and Kubernetes exposure</span><span>JMeter basics</span><span>Agile and Scrum</span></div></div>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<h2>Projects that passed</h2>
+<p class="sub">Frameworks and suites I built from scratch to practise what I use at work.</p>
+<div class="proj"><i class="tick">✓</i><div><h3>Playwright + TypeScript framework</h3><p>End-to-end UI automation for an OpenCart demo store, built with a clean page object structure.</p><div class="chips"><span>Playwright</span><span>TypeScript</span><span>POM</span></div></div></div>
+<div class="proj"><i class="tick">✓</i><div><h3>Selenium + TestNG framework</h3><p>Maven-based framework for the SauceDemo app with WebDriverManager, reusable page classes and TestNG reporting.</p><div class="chips"><span>Selenium</span><span>Java</span><span>TestNG</span><span>Maven</span></div></div></div>
+<div class="proj"><i class="tick">✓</i><div><h3>REST Assured API suite</h3><p>API tests for reqres.in written in Given/When/Then style, covering status codes, response bodies and negative cases.</p><div class="chips"><span>REST Assured</span><span>Java</span><span>API testing</span></div></div></div>
+<div class="proj"><i class="tick">✓</i><div><h3>Careerflow.ai UI automation</h3><p>Playwright and TypeScript assignment, published on GitHub.</p><div class="chips"><span>Playwright</span><span>TypeScript</span></div><p style="margin-top:10px"><a href="https://github.com/awnish1432/careerflow-ai-qa-assignment" target="_blank" rel="noopener">View the repository</a></p></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="two">
+<div><h3>Testing assignments I have completed</h3><ul>
+<li>AI voice agent testing: manual test cases, end-to-end scenarios, bug reports and an automation approach</li>
+<li>WooCommerce subscriptions plugin: practical testing on a local WordPress setup</li>
+<li>Checkout page bug hunt</li>
+<li>Scenario-based QA, SQL and test strategy assessments</li>
+</ul></div>
+<div><h3>How I work</h3><ul>
+<li>I read the requirement first and find the gaps before writing a single test case</li>
+<li>I check the API and the database, not just what the screen shows</li>
+<li>Every bug I log has steps, expected result, actual result and evidence</li>
+<li>I keep learning in public: new frameworks, new tools, new test ideas</li>
+</ul></div>
+</div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="contact">
+<h2>Need a QA who can start now?</h2>
+<p>I am an immediate joiner for QA Engineer, SDET and Manual Testing roles in Delhi NCR. Let us talk.</p>
+<div class="btns"><a class="btn main" href="https://github.com/awnish1432" target="_blank" rel="noopener">See my GitHub</a></div>
+</div>
+</div></section>
+
+<div class="wrap"><footer>Awnish · QA Engineer · Gurugram, NCR</footer></div>
+
+<script>
+(function(){
+var items=document.querySelectorAll('#list li'),count=document.getElementById('count'),passed=0;
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(i){var li=items[i];if(!li)return;li.classList.add(li.classList.contains('bug')?'bug':'done');
+if(!li.classList.contains('bug'))passed++;count.textContent=passed+' / 6 passed';
+if(i===items.length-1)count.textContent='5 passed, 1 bug found';}
+if(reduce){items.forEach(function(_,i){show(i)});}
+else{items.forEach(function(_,i){setTimeout(function(){show(i)},500+i*450)});}
+})();
+</script>
+</body>
+</html>
